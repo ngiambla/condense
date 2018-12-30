@@ -12,7 +12,7 @@ std::string author = "  [+] Nicholas V. Giamblanco, 2018\n";
 std::string bugrpt = "  [!] Report bugs to gdev.engineering@gmail.com OR make an issue at https://github.com/ngiambla/condense\n";
 
 
-std::string ver_string(int a, int b, int c) {
+std::string compiler_ver_string(int a, int b, int c) {
   std::ostringstream ss;
   ss << a << '.' << b << '.' << c;
   return ss.str();
@@ -29,7 +29,7 @@ int main(int argc, char const *argv[]) {
 	switch(argc) {
 		case 2:
 			inputFile = argv[1];
-			if( (bspos = inputFile.rfind("/")) != std::string::npos)
+			if((bspos = inputFile.rfind("/")) != std::string::npos)
 				outDir = inputFile.erase(bspos+1, std::string::npos);
 			break;
 		case 3:
@@ -43,21 +43,22 @@ int main(int argc, char const *argv[]) {
 	std::string true_cxx = "  [+] Compiled with ";
 	true_cxx +=
 	#ifdef __clang__
-	   "clang++ ";
+		"clang++ ";
 	#else
-	   "g++ ";
+		"g++ ";
 	#endif
 
-	  std::string true_cxx_ver =
+	std::string true_cxx_ver =
 	#ifdef __clang__
-	    ver_string(__clang_major__, __clang_minor__, __clang_patchlevel__);
+	    compiler_ver_string(__clang_major__, __clang_minor__, __clang_patchlevel__);
 	#else
-	    ver_string(__GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
+	    compiler_ver_string(__GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
 	#endif
 
 	std::cout << ttl << true_cxx << true_cxx_ver << "\n" << author << bugrpt << "\n";
 
 	Parser * parser = new Parser();		
+	Document * D = parser->parseFile(inputFile);
 
 	return 0;
 }

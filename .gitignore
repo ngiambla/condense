@@ -2,3 +2,5 @@
 *.bc
 *.pyc
 *.ll
+
+condense

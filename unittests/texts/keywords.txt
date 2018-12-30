@@ -1,0 +1,566 @@
+2017 IEEE 30th Canadian Conference on Electrical and Computer Engineering (CCECE)
+
+Keyword and Keyphrase Extraction using Newton’s Law of Universal
+Gravitation
+Nicholas Giamblanco1 and Prathap Siddavaatam2
+Abstract— In current times, there has been a surge in the
+amount of collected data from computational systems. The vast
+amount of data can be useful in many applications and fields,
+particularly so in Big Data Analytics. However with a large
+collection of data there is a difficulty discovering important
+information. Automatic Document Summarization (ADS) systems are suitable for the task of outlining useful data. The ADS
+system model takes a text document as input, and outputs a
+semantically-relevant summary of this information. This information can be further separated and outlined as keywords, or
+keyphrases. This paper proposes a novel unsupervised approach
+for automatic keyword and keyphrase generation system using
+Newton’s Law of Universal Gravitation. This approach allows
+for a complete capture of meaningful text, incorporating the
+physical structure of a document and discovered relationships
+between highly related words. Our model uses a new weighting
+method that combines both the character length of a word, and
+frequency of a word within a document to simulate a mass. Our
+model then computes the force of attraction and ranks the wordpair-force as a means of keyword and keyphrase extraction.
+Experimental results on several text documents demonstrated
+that the proposed approach improves on the state-of-the-art
+models.
+Index Terms— Data and Text Mining; Machine Learning; Big
+Data; Natural Language Processing; Document Summarization;
+Keyword Extraction; Document Classification; Newtons Law
+Of Universal Gravitation; Gravitational Fields; Newtonian
+Gravity;
+
+I. INTRODUCTION
+A keyword can be defined as a word which can relate
+to the majority of information with a larger set of words,
+namely a document. That is, meaningful keywords and
+keyphrases reflect the topics of a document [12]. Therefore
+it is wise to investigate an automatic keyword and keyphrase
+extraction model. The aim of an automatic keyword and
+keyphrase extraction model is to capture meaningful information within the document, extract this information, and
+automatically generate a list of meaningful keywords which
+relates to the document’s meaning. The elements of the list
+can be a single keyword, or a combination of words (a
+keyphrase). With the amount of collected data on the rise,
+keywords and keyphrases have much importance in the field
+of natural language processing, information retrieval, datamining, text summarization, and text classification. [7]
+This article aims to improve the task of identifying and
+generating keywords and keyphrases from documents in
+1 N. Giamblanco is a Researcher in Computer Engineering, Ryerson
+University, 245 Church Street, Toronto, ON
+2 P. Siddavaatam is a Ph.D student in Electrical Engineering, Ryerson
+University, 245 Church Street, Toronto, ON
+
+978-1-5090-5538-8/17/$31.00 ©2017 IEEE
+
+order to aid data-mining initiatives. In general, the use
+of keywords and keyphrases enable individual to query
+information from these lists. The objective of this research
+is to capture and extract the most relevant keywords and
+keyphrases from a textual document. The task of keyword
+extraction generally employs statistical models in order to
+derive and arrive at a meaningful solution. In this paper, we
+apply a non-probabilistic, unsupervised method of extracting
+keywords, and related keywords which we will refer to as
+keyphrases.
+II. RELATED WORK
+It is important to note that the evaluation of a Keyword
+and Keyphrase extraction system is troublesome, as it is subjective in nature. However, several Keyword and Keyphrase
+Extraction Systems have been proposed in order to capture
+the major topics within a single document using only a few
+words or phrases (two or more words). Early systems utilized
+word scoring functions that operated with word-document
+frequency relationships, or from a TF-IDF scoring system.
+Recently, an unsupervised method named Rapid Automatic Keyword Extraction (RAKE) [12] has proven to be
+effective in extracting meaningful keywords. The system
+applies a stop-word filter to the corpus, in order to reduce
+the effect of noise in their calculations. This system identifies
+keywords and keyphrases by formulating candidate phrases
+and words. To extract meaningful data from this candidate list, their co-occurrences are calculated from document
+statistics. After going through a ranking process, several
+candidates are combined to form a keyword and keyphrase
+set which describes the document.
+TextRank is also a recent unsupervised keyword extraction
+system, where the system’s foundation reflects the PageRank
+algorithm. This keyword extraction system automatically
+discovers a graphical representation of text, where singular words are symbolized as nodes, and the relationships
+between nodes are generated by an indicated co-occurence
+window [8].
+Our proposed model is an unsupervised, single document,
+domain-independent, keyword and keyphrase extraction system. By using a Newtonian approach to linguistics, we
+are able to cluster words following gravitational theories,
+where words will be symbolically represented as the physical
+quantity of mass; the interaction between masses will be
+modeled utilizing Newton’s law of Universal Gravitation.
+We will refer to our model as Key-LUG. In the following
+sections, we will describe Key-LUG in more detail.
+
+2017 IEEE 30th Canadian Conference on Electrical and Computer Engineering (CCECE)
+
+III. T HE P ROPOSED M ODEL
+In this section, we present our model, and describe the
+contents of our extraction system behaviour. Our keyword
+and keyphrase extraction system is categorized into four
+processes from a high level view: (A) Noise Filtering, (B)
+Word-Mass Assignment, (C) Word Attraction Computation,
+(D) Keyword and Keyphrase Ranking.
+A. Noise Filtering
+Within any piece of English literature, it is imperative
+to utilize pronouns, adverbs, or articles for proper sentence
+construction. Although important in a grammatic context,
+these words do not provide any meaning to the topics
+of a document. Our model utilizes word frequency in the
+calculation of the word-mass relationship. Therefore, these
+frequented words can be viewed as noise from the system. To
+combat noise, we apply a filter from a linguistic perspective,
+where these stop words, will be omitted by our system
+calculation. We supply the filter with a list of irrelevant words
+selected by the authors of this paper. [10]
+B. Word-Mass Assignment
+Our proposed method (Algorithm 1) assigns a mass to all
+words in the document. This means that we are considering
+the entire document in our system, since much of the semantic meaning is held in various locations [14]. Generally,
+the importance of a word is reflected by its frequency of
+appearance. Key-LUG operates under the assumption that
+character length of a word impacts the importance of its
+meaning. Therefore, the effect on word weight is proportional to character count.
+To apply the proposed model in this paper, the per word
+mass assignment is required. We have assumed that a word
+with a longer set of characters has more relevance to the
+information in the document. Therefore, one can utilize the
+character count as a factor in word-mass assignment. It is
+also known that word frequency relates to the document’s
+meaning [5]. The entire procedure for word-mass assignment
+is equivalent as the product of one less than the frequency and
+character count of the word. This results two effects, (1) we
+remove words that have only occurred once, as their relative
+mass would be zero, (2) a large number of characters within
+a word do not necessarily reflect the semantic contents of
+a document, ergo this is reflected by its frequency. During
+this procedure, the relative location of each word is also
+recorded, since gravitational fields affect objects based of
+their distance r, and mass m. Refer to Algorithm 1 for a
+detailed description of word-mass assignment.
+C. Word Attraction Computation
+Our proposed model assumes that within a document D,
+a word wi may be related to some other word wj where
+wi , wj ∈ D and i 6= j. We also assume that if the intensity of
+a relation between words wi and wj is large, the keyphrase or
+keyword pair has more relevance for extraction. Our model
+forms a network of words, which is a complete weighted
+graph. Each node ni of this network contains a word wi
+
+Algorithm 1: Procedure for Word Mass Assignment
+Result: Mw := Word-Mass List
+Lw := Word-Location List
+Input : D := {w0 , ..., wp }: Document of length p
+S := {s0 , ..., sk }: Stop Words of length k
+1
+2
+4
+
+5
+
+6
+
+7
+8
+9
+10
+11
+12
+13
+14
+
+position ← 1
+foreach word in D do
+Increment position by 1
+/* Parsing words in the Document D
+and filtering noise
+*/
+if word NOT in S then
+/* Add Word to Location List
+*/
+L[position] ⇐ word
+/* Calculate Word Mass
+*/
+if word NOT in M then
+M [word] ⇐ 0
+else
+strlen ⇐ length(word)
+M [word] ⇐ M [word] + strlen
+end
+end
+end
+
+and a mass mwi . An edge e connecting two nodes ni and
+nj represents the distance between these two nodes |i − j|.
+Hence, this network based view of the our model links
+closely to Issac Newton’s Law of Universal Gravitation:
+mi mj
+Faij = −G
+rˆij
+(1)
+|rij |2
+Where two masses mi and mj , and their effective displacement at positions pi and pj produce a relationship
+in which the two masses are attracted to each other. This
+attraction is represented in terms of force, namely Faij and
+is inversely proportional to the square of pj −pi = rij . When
+dealing with a physical environment, a constant G (Newton’s
+Constant) is used for normalization. [3]
+Our model employs this relationship, replacing mi and
+mj with the mass of wi and wj , respectively. However,
+original parameters may not relate to the field of linguistics.
+To provide a relationship with Newton’s Law of Universal
+Gravitation we come to the following definitions:
+D
+wi
+wi
+
+= {w0 , w1 , ..., wn }
+= {c0 , c1 , ..., cq }
+= {l0 , l1 , ..., lx }
+
+(2)
+
+Where each document D is defined of n words, the ith word
+wi in D consists of q characters c, and wi may occur in
+different locations from l0 to lx in the document structure.
+These parameters allow for the use of a modified universal
+gravitational law. However, as n becomes large (n >> i),
+the relationship between wi and wn−1 will be meaningless
+(according to the inverse square law) [2] with the use of
+equation (1). Most meaning can be captured within a subset
+
+2017 IEEE 30th Canadian Conference on Electrical and Computer Engineering (CCECE)
+
+of words wω , and at each word wi in the document, wω is
+computed at the relative position of wi . Therefore x defines
+a proportion of meaningful relationships between wi and wx .
+We can define this in the following way:
+x = λn where 0 < λ < 1
+
+(3)
+
+λ is the proportionality parameter which selects a portion of
+words in the document. It should be intuitive that if we are
+in some location l in the document, and 0 < l < n, then the
+subset of words wω can be computed from all words thats
+begin at l − x and end at l + x. Therefore, for each word wi
+in the document D we define the following relationship:
+Fwij = C
+
+mwi mwj
+|rij |2
+
+,
+
+(4)
+
+where j ∈ {i − x, ..., i + x} and i ≤ n
+Where C is a constant, mi and mj are the word-masses
+such that i 6= j, and i ≤ n. It is important to note that C has
+a normalizing effect with this equation. These formulae are
+key for the proposed algorithm (Algorithm 2). At every word
+location in the document, the attraction between two words
+is computed and stored. The weighting process is detailed
+as:
+Algorithm 2: Word-Attraction Computation
+Result: RankedKeyPhraseList: List of Ranked
+Keyphrases based on Force
+Input : D := {w0 , ..., wp }: Document of length p
+λ: Proportionality Parameter
+1
+2
+4
+6
+7
+8
+
+9
+
+10
+11
+12
+13
+
+14
+
+position ← 1
+foreach word1 in D do
+position ← location(word)
+slidingW indow ← {position − λ : position + λ}
+foreach word2 in SlidingWindow do
+if word1 6= word2 then
+/* Computing Gravitational
+Force between Masses
+(words)
+*/
+keys ← computeGF orce(word1, word2)
+/* Appending to temp
+keyphrase list
+*/
+append(keyList, keys)
+end
+end
+end
+/* Ranking keyphrase list and removing
+non uniqueness from list
+*/
+RankedKeyP hraseList ← rankF orce(keyList)
+
+D. Keyword and Keyphrase Ranking
+Once the document have been analyzed, the set of computed values are sorted with respect to the force of attraction,
+which we will refer to as the set K. A subset of the keyword
+pairs (ordered pairs) S are then selected, such that S ⊂ K,
+where S is of a specified length q, where q is a tunable
+
+parameter. The elements within S are chosen by selecting
+the keyword pairs of largest magnitude of force. These pairs
+can be considered as candidates. However, candidate pairs
+can only be added to the set S such that they do not contain
+words already present in this set. During the initial phase of
+our computation, we develop the set K. A sample of K is
+listed in Table 1.
+TABLE I
+F ORCE OF ATTRACTION B ETWEEN K EYWORDS
+Ranking
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+Keyword 1
+equivalence
+elicitation
+algorithms
+lindahl
+allocation
+manifest
+communication
+demand
+classes
+auctions
+
+Keyword 2
+queries
+preference
+learning
+prices
+optimal
+valuations
+polynomial
+query
+representation
+combinatorial
+
+Force [kN]
+17532.2
+16643.4
+10243.3
+4873.5
+3188.4
+2728.4
+1760.6
+975.2
+708.5
+577.6
+
+Our method is easily understood and implementable.
+IV. EXPERIMENTS
+In order to test the effectiveness of this keyword and
+keyphrase extraction system, we tested it against the following systems: RAKE [12], and TF-IDF scores [11] (implemented in Python 2.7).
+A. Experimental Settings
+Our test method used a dataset (SemEval) from the
+University of Waikato [6], which was employed in [12].
+This particular dataset provided the expected outputs for a
+keyphrase extraction system. This dataset contained 100 .txt
+files for system evaluation. Utilizing this dataset allowed
+for a comprehensive comparison between the two extraction
+systems and our model, identifying the margins of optimal
+operation. Our system operated with λ = 0.01 providing a
+proportionality factor of 1% for all words in the document.
+We also set the constant C to a value of 1. The majority of
+our experiments suggest all words within 1% of the current
+document position have relevance to the keywords. However,
+this can be tuned to user-specific cases.
+The systems we compared against had the following
+operational parameters: (1) RAKE was configured to select
+only words containing two or more characters, the maximum
+allowable keyphrase length was two (since the Key-LUG system only provides keyphrases constructed from two words),
+and the term frequency was allowed to be at least one, since
+Key-LUG permits single occurrence terms, (2) TF-IDF has
+no configuration parameters since this scoring system only
+ranks keywords by term frequency.
+Our system performs extractions on a document-bydocument basis, the test dataset is a compilation of individual articles and the subjects we tested against are
+also single-document analysis systems. To provide complete
+transparency in our experiments, we permitted keyphrases to
+
+2017 IEEE 30th Canadian Conference on Electrical and Computer Engineering (CCECE)
+
+be summarized into a list of single keywords. This eliminates issues regarding complete matching [4]. The issue that
+exists within matching is that a keyphrase generated from
+a keyphrase extraction system may not exactly match the
+human-provided keyphrase, differing by a grammatical basis.
+Hence, we avoid this issue by summarizing all keyphrases
+into a list of keywords.
+
+TABLE II
+S EM E VAL T RAINING S ET R ESULTS : M EAN S CORES
+Method
+TF-IDF
+Key-LUG
+RAKE
+
+Precision %
+34.53
+36.65
+1.58
+
+Recall %
+34.53
+58.75
+72.58
+
+F1 Score %
+34.53
+44.32
+3.08
+
+TABLE III
+S EM E VAL T EST S ET R ESULTS : M EAN S CORES
+
+B. Results
+To evaluate Key-LUG against the following models, we
+utilize the following measures which are common to use
+within keyword and keyphrase extraction systems: (1) Precision, (2) Recall, (3) F1 Score [1]. These metrics are
+considered a standard for text processing as by [15]. We
+can mathematically describe these metrics as:
+Relevant Keywords ∩ Retrieved Keywords
+Retrieved Keywords
+(5)
+Relevant Keywords ∩ Retrieved Keywords
+Recall =
+(6)
+Relevant Keywords
+
+Precision =
+
+F1 = 2 ·
+
+1
+recall
+
+1
+precision · recall
+=2·
+1
+precision + recall
++ precision
+
+(7)
+
+and this provides a relationship between the recall and
+precision of the keyword and keyphrase extractions, outlining
+accuracy of the test. As defined by [9], the measures of
+Precision and Recall are equally important. However, since
+our system is a single document keyword and keyphrase
+extraction system, the measures Recall, Precision, and F1
+Score are not computed for the entire corpus. Therefore, we
+compute the geometric average of these measures across the
+documents in the given corpus. We also split the corpus into
+two sub-corpora, classified as (1) Training, and (2) Testing.
+The procedure of splitting the corpus into a training and
+test set was undertaken to be consistent with the compared
+systems.
+Tables II and III outline the difference in performance
+by using Key-LUG in contrast to RAKE, and TF-IDF. As
+observed from our results, it is clear Key-LUG outperforms
+RAKE, and TF-IDF, with the chosen dataset [13]. As observed from Table I, the F1-Score of Key-LUG has an
+increase of approximately 10% in comparison to TF-IDF.
+Also, we observed a significant increase of approximately
+31% in contrast with RAKE’s F1-Score. Although, RAKE
+outperforms Key-LUG in terms of Recall, this is insignificant
+in terms of keyword and keyphrase extraction as recall
+does not indicate precision. The observed metric of precision in Table I provides a clear difference in performance,
+where Key-LUG outperforms both TF-IDF (approx. 1%) and
+RAKE (approx. 35%). Similarily in Table II, we observe a
+similar trend, where Key-LUG again dominates in terms of
+F1-Score, and Precision for the testing data set. Again, it
+was observed that the Recall metric from RAKE was greater
+than Key-LUG’s metric.
+
+Method
+TF-IDF
+Key-LUG
+RAKE
+
+Precision %
+35.78
+35.71
+1.55
+
+Recall %
+35.78
+58.92
+74.05
+
+F1 Score %
+35.78
+44.42
+3.03
+
+V. CONCLUSIONS AND FUTURE WORK
+In this article, we define a novel Keyword and Keyphrase
+extraction system, which we name Key-LUG (Key-Law of
+Univeral Gravitation), which is domain-independent, and
+unsupervised, and formulated from the concept of Newtonian
+Gravity, and his law of universal gravitation. As observed
+from Section IV, our model outperforms two standards of
+keyword and keyphrase extraction systems [12] and [11],
+based of the metrics of Recall, Precision, and F1 Score [1].
+R EFERENCES
+[1] Michael Buckland and Fredric Gey. The relationship between recall
+and precision. Journal of the American society for information science,
+45(1):12, 1994.
+[2] Ofer Gal. Inverse square law. 2002.
+[3] Øyvind Grøn. Newtons law of universal gravitation. In Lecture Notes
+on the General Theory of Relativity, pages 1–16. Springer, 2009.
+[4] Kazi Saidul Hasan and Vincent Ng. Automatic keyphrase extraction:
+A survey of the state of the art. In ACL (1), pages 1262–1273, 2014.
+[5] Adam Kilgarriff. Using word frequency lists to measure corpus
+homogeneity and similarity between corpora. In Proceedings of ACLSIGDAT Workshop on very large corpora, pages 231–245, 1997.
+[6] Olena Medelyan and Ian H Witten. Thesaurus based automatic
+keyphrase indexing. In Proceedings of the 6th ACM/IEEE-CS joint
+conference on Digital libraries, pages 296–297. ACM, 2006.
+[7] Z. A. Merrouni, B. Frikh, and B. Ouhbi. Automatic keyphrase
+extraction: An overview of the state of the art. In 2016 4th IEEE
+International Colloquium on Information Science and Technology
+(CiSt), pages 306–313, Oct 2016.
+[8] Rada Mihalcea and Paul Tarau. Textrank: Bringing order into texts.
+Association for Computational Linguistics, 2004.
+[9] T. Pay. Totally automated keyword extraction. In 2016 IEEE
+International Conference on Big Data (Big Data), pages 3859–3863,
+Dec 2016.
+[10] S. Popova, L. Kovriguina, D. Mouromtsev, and I. Khodyrev. Stopwords in keyphrase extraction problem. In 14th Conference of Open
+Innovation Association FRUCT, pages 113–121, Nov 2013.
+[11] Juan Ramos et al. Using tf-idf to determine word relevance in
+document queries. In Proceedings of the first instructional conference
+on machine learning, 2003.
+[12] Stuart Rose, Dave Engel, Nick Cramer, and Wendy Cowley. Automatic
+keyword extraction from individual documents. Text Mining, pages 1–
+20, 2010.
+[13] Alexander Thorsten Schutz. Keyphrase extraction from single documents in the open domain exploiting linguistic and statistical methods,
+2008.
+[14] Terry Winograd. Understanding natural language. Cognitive psychology, 3(1):1–191, 1972.
+[15] Yiming Yang and Xin Liu. A re-examination of text categorization
+methods. In Proceedings of the 22nd annual international ACM SIGIR
+conference on Research and development in information retrieval,
+pages 42–49. ACM, 1999.
+
+

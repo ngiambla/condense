@@ -1,0 +1,119 @@
+My maxtor onetouch 160g works as advertised.
+Easy onetouch incremental duplication , and automatic incremental backup are very nice , and work well here are my own tips as a token of appreciation for cnet public service to users (i'm quite a newbie , don't take this as a too serious piece of advice).
+1) first the maxtor unit configuration has to be done following step by step the useful paper manual.
+I read it all and found a lot of useful information there.
+2) quit skype , google desktop and some resident protection software can be a good idea before big back ups.
+3) don't move the drive during use.
+4) always quit your maxtor with the safe remove utility from xp.
+5) do not overuse the unit , so that it does not get exceedingly warm.
+5) always use a stabilized power supply (stabilizer) so that the electric power has not micro cuts.
+6) when not in use it is a good idea to keep the maxtor unit switched off to save its inernal parts.
+7) generally keep the unit in possibly a rather fresh and well ventilated area.
+On the rear side of the unit there are some cooling holes which should have enough space for air flow.
+8) use defrag from time to time for your computer as well as for your maxtor external drive (although it is quite long).
+9) do not relie exclusively on your maxtor external drive to save your data.
+It can be used best as back up for your computer data , but your data should be stored or preserved in two different places at least    your computer hard disk and your maxtor external drive for instance.
+So in case of a computer crash or external disk drive crash , one set of your data remains intact.
+10) if you can have norton ghost it is also a good idea to also back up your data on your maxtor external drive using ghost.
+The advantage of ghost is that recovery can be a bit more simple to implement.
+Partition , windows and service packs do not have to be reinstalled first with ghost after the crash , although it is the case with the retrospect express software provided with the one touch line of products.
+11) after several years please accept that your external disk drive might be a bit worn out , and prepare to buy a new one.
+I have had this drive for over a year and it has been very reliable.
+I purchased a camera case for traveling and the power source requirement is sometimes a pain.
+What i like best is that i do not have to carry my notebook computer wherever i go and/or i can plug into any computer to transfer files.
+I've had this drive for almost 2 years and haven't had any problems with it.
+The only thing i haven't like is the one    touch backup software.
+It seems like it takes longer to get this running correctly than it is to just drag and drop what i need backed up.
+I realize that does not work for everyone.
+I purchased the drive in july of 2003 and immediately noticed the heat build up on the top of the case when using it for a short period.
+I measured the temp and it does reach the high 80's       low 90's.
+Way too hot.
+This compares to the dell dimension pc operating in 60's.
+At the time i called maxtor questioning why this unit had no cooling fan       it did not need one.
+Well that is definitely a line , however i is assured they would stand behind the drive (for a year)       but not my data.
+I bought an $4.
+95 8 desk fan and it runs when the maxtor runs.
+It sets about 10 away , aimed at the insufficent , natural ventilation holes in the front.
+This simple cooling (air flow) drops the temp to the 60's    70's.
+And another way to keep the data safe is only run the maxtor when you need to use it.
+One touch is a fine idea , but continuous running or this drive with no additional cooling is its end.
+From reading many reviews i can see it is a crash waiting to happen without a fan.
+My maxtor drive and its 8 cooling fan are still doing a great job.
+As a rule       the cooler electronics run the longer they last       maxtor ignored this rule in the poor cooling design of this unit.
+I have had this drive for about a month and am very happy with it    so far.
+I use it strictly as a network attached storage device and therefore am not able to use nor do i need the one touch feature.
+Other posts regarding early failure may yet prove prophetic for my drive to.
+It does get very warm after heavy use.
+I will definitely come back to this forum and tell all if the thing fails in the next two or three months.
+I do not know what the fuss is all about.
+I've had my 160gb one touch for 6 months plus and i've had no problems.
+I have it running 24/7 under my computer desk with limited air circulation and i've had zero problems.
+I've never used it for backing up my internal hd and i've never used the software it came with.
+I use mine for music , downloads and as a video scratch.
+I'm a dj and using the drive as a portable jukebox combined with my laptop has made gigs so much easier.
+No more hauling vinyl or cds.
+I can now take over 7000 320kbps song files with me wherever i go.
+Try doing that with vinyl.
+After my computer's internal hard drive crashed , i reached over endearingly to my maxtor ext hard drive i had backed everything up onto , and it would not turn on.
+At the end of the day it seemed to be a power cord problem (which is weird , no external damage , no rough handling) so i got most of my data back.
+Maybe us whiners got a bad batch , but i'm thumbs down on this one too.
+True also that it heats up to an alarming temperature.
+I bought the maxtor one touch iii (160 gb) a few months ago to store my photos and music and other things that were slowing down my pc.
+Earlier today , i tried to access my photos and realized that my computer is no longer recognizing the maxtor drive and there is no power getting to it.
+After checking out all simple fixes , i called the maxtor / seagate help line.
+Within a minute , the woman i spoke to is able to determine what is wrong (obviously they've had some experience with this type of problem) and informed me that the device had failed.
+She told me that it's under warranty until may 2008 , so i will be able to have it replaced , but if i want the information off of the drive , i will have to pay to have that information recovered by their recovery service.
+I contacted them and is informed that they would attempt to retrieve the information , and if they were successful i would be charged somewhere around $1 , 400.
+I have all of my digital photos on here from the past three years births , parties , vacations , grandchildren you name it it's on there.
+I said i didn't understand why i would have to pay when it is their defective merchandise which caused the loss.
+The customer service attendant blamed me for not using at least two other forms of backup.
+I'll admit that i is foolish in not backing up the photos to disks , and i wo not make that mistake again.
+I am heartsick at the mementos that i have lost.
+I have to wonder , though , which is more profitable for seagate / maxtor selling drives or charging customers exorbitant fees to recover information from their defective devices.
+My backup harddrive just died.
+I press the blue button (as i have done for over 2 years) and nothing happens.
+There's no software button on my desktop to do a back up so the external drive now just sits there useless.
+I've had two good years but the seagate website is indecipherable so just to keep my life easy , i'm just going to buy another.
+But definitely not another maxtor.
+This is supposed to be my backup.
+It hardly gets used.
+What a hunk of junk.
+My sister brought to me this 200gb maxtor ext hd (onetouch ii) in december beggining (i live in brazil).
+One month later my computer couldn�t recongnize it anymore.
+I had moved all my digital photos to it and , suddenly , i couldn�t get then back.
+The problem is we can�t do much thing with a usb device.
+There�s no configuration , setups or anything else we can do to recover the data i wrote to maxtor because the 2 blue leds in front of the drive started to blink together , but the led code on the maxtor site doesn�t inform this situation after 6 or 7 asked and answers emails they couldn�t tell me what�s going on.
+Like in brazil , these help desks centers are trully awful and they know less than we about they own products well , finnaly i asked maxtor if i sent the hd to us they would try to recover my data back.
+They said no.
+They would just give me another drive the important to me wasn�t the drive , but the data.
+So , i realize it would be safer with me i made a research in the net about this drive and i learned 2 things   a lot of costumers had problems with this product and it is just a internal drive with a external case maxtor said to me i shouldn�t open the external case because i would lose warranty but , like i said , if i had spent the drive to us i wouldn�t see my photos again i oppened the drive and installed it internally.
+It worked ok and i could get my data back.
+So , now i have a traditional 200gb internal drive working fine i tell you , my friends , don�t use this drive for backups.
+It�s not trustable.
+This it a terrible hard drive.
+It worked ok , but very slowly for the first few weeks.
+I used it mainly as backup and extra storage for videos , mp3s , and pictures.
+I have it partitioned into 2 drives.
+The backup partition is lost once and i had to reformat , but luckily i did not loose any data.
+The other partition is corrupted once before , but the data  magically  recovered.
+Now it is having problems again.
+Chkdisk is frozen and won't close , my computer won't open , the drive wo not stop for safe removal , and it seems that only the data that  is not  backed up is gone.
+A 13gb folder subbenly became empty maxtor's support is only monday    friday , 8    5.
+I am not availible during those times.
+They do have email support (i just sent one) in addition to the non    reliability , it is slow.
+On the computer it is connected to , it transfers at up to 130 megabytes per second.
+On another computer with two internal drives , the transfer rate for backup is over 1000 megabytes per second.
+With this drive it can take many hours to back up do not buy it , and if you have one , do not trust it for important data.
+This external hard drive does not work.
+I cannot get any of my files off of it.
+I have tried to explain it to the company and they do not understand what i'm telling them.
+I put all my music and picture files on it via drag and drop , and now cannot get them off.
+I cannot get any access to the drive.
+It tells me to insert a disk and obviously there is no place to insert a disk it is the disk.
+I would never recommend this product and for sure will never buy another one.
+Their ads are misleading since they claim it is so easy to use it's a nightmare.
+Period.
+This drive is fine the first three months you have it , then it turns into a nightmare.
+I have lost more data than i care to think about using maxtor drives.
+Buy lacie.
+They are 100 times better.
