@@ -1,4 +1,4 @@
-# Makefile for QVMI;
+# Makefile for CONDENSE;
 # =-----------------=
 
 EXE = condense

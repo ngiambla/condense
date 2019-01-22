@@ -31,6 +31,7 @@ int main(int argc, char const *argv[]) {
 			inputFile = argv[1];
 			if((bspos = inputFile.rfind("/")) != std::string::npos)
 				outDir = inputFile.erase(bspos+1, std::string::npos);
+			inputFile = argv[1];
 			break;
 		case 3:
 			outDir = argv[2];
