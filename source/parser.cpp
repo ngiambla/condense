@@ -7,6 +7,14 @@ Parser::Parser() {
 	supported_filetypes[".pdf"] = 1;	
 	supported_filetypes[""] 	= 1;
 
+	boundaries[""] = " ";
+	boundaries[" "] = " ";
+	boundaries[" "] = ",";
+	boundaries[" "] = ".";
+	boundaries[" "] = "?";
+	boundaries[" "] = "!";
+	boundaries[" "] = "-";
+
 }
 
 
@@ -19,6 +27,29 @@ std::string Parser::ReplaceAll(std::string str, const std::string& from, const s
     return str;
 }
 
+std::vector<std::string> Parser::VectorizeSentence(std::string str_org) {
+	std::string str = str_org;
+	std::string token;
+	std::string delimiter = " ";
+	std::vector<std::string> sentence;
+	size_t pos = 0;
+
+	while ((pos = str.find(delimiter)) != std::string::npos) {
+		token = str.substr(0, pos);
+		if (word_replacement_map.find(token) == word_replacement_map.end()) {
+			sentence.push_back(token);
+		}
+		//std::cout << token << std::endl;
+		str.erase(0, pos + delimiter.length());
+	}
+	if (word_replacement_map.find(str) == word_replacement_map.end()) {
+		sentence.push_back(str);
+	}
+	//std::cout << s << std::endl;
+	
+	return sentence;
+}
+
 Document * Parser::parsePDFFile(std::string filename) {
 	std::cout << "Not implemented yet.\n";
 	return NULL;
@@ -28,6 +59,7 @@ Document * Parser::parseTextFile(std::string filename) {
 	
 	size_t len 		= 0;
 	char * line 	= NULL;
+	std::unordered_map<std::string, int> word_frequency_map;
 	std::string doc 		= "";
 	Document * D 	= new Document();
 	FILE * fp 		= fopen(filename.c_str(), "r");
@@ -41,47 +73,32 @@ Document * Parser::parseTextFile(std::string filename) {
 	}
 
 	fclose(fp);	
+
 	if(line) {
 		free(line);	
-	}
+	}	
 
-	for(const auto &x : word_replacement_map) {
-		doc = ReplaceAll(doc, x.first, x.second);
-	}
 	doc = ReplaceAll(doc, "\n", " ");
-
 
 	std::string t_doc = doc;
 
 	std::regex sentencex("[A-Z]([^.?!]){3,}.?!?\??");
 	std::smatch sentencematch;
 	while (std::regex_search (t_doc, sentencematch, sentencex)) {
-		for(auto x : sentencematch) {
+		for (auto x : sentencematch) {
 			std::string pline = x.str();
-			std::cout << "[S] "<< pline << "\n";
-
-
-			/*	
-				std::string delimiter = " ";
-				size_t pos = 0;
-				std::string token;
-				while ((pos = s.find(delimiter)) != std::string::npos) {
-					token = s.substr(0, pos);
-					std::cout << token << std::endl;
-					s.erase(0, pos + delimiter.length());
-				}
-				std::cout << s << std::endl; 
-			*/
-
+			//std::cout << pline << "\n";
+			std::vector<std::string> sentence = VectorizeSentence(pline);
+        	for(auto word : sentence) {
+        		std::cout << word << "\n";
+        	}
+        	t_doc.replace(sentencematch.position(0), pline.length(), "");
 			break;
 		}
-		t_doc = sentencematch.suffix().str();
 	}
+	std::vector<std::string> sentence_last = VectorizeSentence(t_doc);
+
 	std::cout << t_doc << "--remaining....\n";
-
-
-
-	std::cout << "Not implemented yet.\n";
 
 	return NULL;
 }

@@ -1,13 +1,3 @@
-#ifndef __REPLACEMENTS_H__
-#define __REPLACEMENTS_H__
-
-
-#include <algorithm>
-#include <unordered_map>
-
-// Initialize an unordered_map through initializer_list
-const std::unordered_map<std::string, std::string> word_replacement_map
-{
 {"i",""},
 {"me",""},
 {"my",""},
@@ -134,8 +124,4 @@ const std::unordered_map<std::string, std::string> word_replacement_map
 {"just",""},
 {"don",""},
 {"should",""},
-{"no",""}
-};
-
-
-#endif
+{"no",""},
