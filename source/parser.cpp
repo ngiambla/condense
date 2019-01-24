@@ -36,17 +36,16 @@ std::vector<std::string> Parser::VectorizeSentence(std::string str_org) {
 
 	while ((pos = str.find(delimiter)) != std::string::npos) {
 		token = str.substr(0, pos);
-		if (word_replacement_map.find(token) == word_replacement_map.end()) {
+		token.erase(std::remove_if(token.begin(), token.end(), []( char const& c ) -> bool { return !std::isalnum(c); } ), token.end());
+		if (stopword_replacement_map.find(token) == stopword_replacement_map.end()) {
 			sentence.push_back(token);
 		}
-		//std::cout << token << std::endl;
 		str.erase(0, pos + delimiter.length());
 	}
-	if (word_replacement_map.find(str) == word_replacement_map.end()) {
+	str.erase(std::remove_if(str.begin(), str.end(), []( char const& c ) -> bool { return !std::isalnum(c); } ), str.end());
+	if (stopword_replacement_map.find(str) == stopword_replacement_map.end()) {
 		sentence.push_back(str);
-	}
-	//std::cout << s << std::endl;
-	
+	}	
 	return sentence;
 }
 
@@ -59,10 +58,10 @@ Document * Parser::parseTextFile(std::string filename) {
 	
 	size_t len 		= 0;
 	char * line 	= NULL;
-	std::unordered_map<std::string, int> word_frequency_map;
-	std::string doc 		= "";
-	Document * D 	= new Document();
 	FILE * fp 		= fopen(filename.c_str(), "r");
+
+	std::string doc 		= "";
+	std::vector<std::vector<std::string > > sentences;
 	
 	if (fp == NULL) {
 		return NULL;	
@@ -78,6 +77,11 @@ Document * Parser::parseTextFile(std::string filename) {
 		free(line);	
 	}	
 
+	// Replace all acronyms to assist in sentence boundary detection
+	for(const auto acr: acr_replacement_map) {
+		doc = ReplaceAll(doc, acr.first, acr.second);
+	}
+
 	doc = ReplaceAll(doc, "\n", " ");
 
 	std::string t_doc = doc;
@@ -87,18 +91,19 @@ Document * Parser::parseTextFile(std::string filename) {
 	while (std::regex_search (t_doc, sentencematch, sentencex)) {
 		for (auto x : sentencematch) {
 			std::string pline = x.str();
-			//std::cout << pline << "\n";
+			pline.pop_back();
+			std::transform(pline.begin(), pline.end(), pline.begin(), ::tolower);
 			std::vector<std::string> sentence = VectorizeSentence(pline);
-        	for(auto word : sentence) {
-        		std::cout << word << "\n";
-        	}
+			sentences.push_back(sentence);
         	t_doc.replace(sentencematch.position(0), pline.length(), "");
 			break;
 		}
 	}
 	std::vector<std::string> sentence_last = VectorizeSentence(t_doc);
+	sentences.push_back(sentence_last);
 
-	std::cout << t_doc << "--remaining....\n";
+	if(sentences.size() > 0)
+		return new Document(sentences);
 
 	return NULL;
 }

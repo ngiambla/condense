@@ -6,6 +6,7 @@
 
 // [c/c++]-std define
 #include <iostream>
+#include <cctype>
 #include <fstream>
 #include <unordered_map>
 #include <string>
